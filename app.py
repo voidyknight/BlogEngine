@@ -14,7 +14,7 @@ def getBlogs():
     print results
     blogs=[]
     for blog in results:
-        blogs.append(blog)
+        blogs.append(blog[0])
         
 
     return blogs
@@ -36,15 +36,15 @@ def blog(blog_name):
     if request.method == "POST":
         post_ID = request.form["comment"]
         redirect(url_for("post_page", postID = post_ID))
-  #return render_template("blog.html")
-  return render_template("main.html") #for now, goes back to main page
+        #return render_template("blog.html")
+    return render_template("main.html") #for now, goes back to main page
 #wll show posts of blog newest to oldest
 
 @app.route("/<postID>")
 def post_page(postID = None):
-  #return render_template("post.html", name = post_name, content = post_content)
-  #from postID, we access the database to extract post_name and post_content
-  return render_template("main.html")#for now, just return main page
+    #return render_template("post.html", name = post_name, content = post_content)
+    #from postID, we access the database to extract post_name and post_content
+    return render_template("main.html")#for now, just return main page
 
 
   
