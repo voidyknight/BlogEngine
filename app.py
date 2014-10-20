@@ -28,7 +28,7 @@ def main():
             c.execute("INSERT INTO posts VALUES ('"+blog+"', '"+post+"')")
             try:
                 c.execute("INSERT INTO blogs VALUES ('"+blog+"')")
-            except IntegrityError:
+            except:
                 pass
             redirect(url_for("blog", blog_name = blog))
     return render_template("main.html", blogs=getBlogs())
@@ -52,5 +52,5 @@ def post_page(postID = None):
   
 if __name__=="__main__":
     app.debug=True
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host="0.0.0.0",port=1639)
     app.run()
