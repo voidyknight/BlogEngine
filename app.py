@@ -25,6 +25,8 @@ def main():
         post = request.form["post"]
         blog = request.form["blog"]
         if post != None and blog != None:
+            c.execute("INSERT INTO posts VALUES ("+blog+", "+post+")")
+            c.execute("INSERT INTO blogs VALUES ("+blog+")")
             #insert post into blog db under blog name
             redirect(url_for("blog", blog_name = blog))
     return render_template("main.html", blogs=getBlogs())
