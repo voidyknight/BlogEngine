@@ -1,6 +1,6 @@
 import sqlite3
-
 conn = sqlite3.connect("blogs.db")
+c = conn.cursor()
 
 q = "create table blogs(name text)"
 c = conn.cursor()
@@ -16,3 +16,4 @@ create table comments (blog integer, user text, comment text)
 """
 c.execute(q);
 conn.commit();
+conn.close();

@@ -8,7 +8,7 @@
 
 <body>
 	<div class="container">
-	<h1>Maybe a header or something</h1>
+	<h1>Blogline</h1>
 	
 
 <div class="panel panel-success">
@@ -17,9 +17,11 @@
   </div>
   <div class="panel-body">
 	<ul class="list-unstyled">
-		{% for blog in blogs}
+		{% for blog in blogs %}
 		<li><form action="/"{{blog}}><button type="submit" value= {{blog}}>{{blog}}</button></form></li>
-	</ul>
+		{% endfor %}
+
+	      </ul>
   </div>
 </div>
 <div class="panel panel-info">
