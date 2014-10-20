@@ -1,1 +1,40 @@
-main html page for flask
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN"> 
+<html> 
+<head>  
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/bootstrap-theme.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css') }}">
+<title>Blogs</title>
+</head>
+
+<body>
+	<div class="container">
+	<h1>Maybe a header or something</h1>
+	
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Go To Blogs</h3>
+  </div>
+  <div class="panel-body">
+	<ul class="list-unstyled">
+		<li><a href="http://google.com">Blog</a></li>
+		<li><a href="http://google.com">Blog</a></li>
+	</ul>
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Make A Post</h3>
+  </div>
+  <div class="panel-body form-group ">
+	<form action= "\">
+		<label>Blog</label> <input type="text" class="form-control" name="blog" placeholder="Your Blog Name"><br>
+		<label>Post</label>
+		<textarea name= "post" rows="30" class="form-control" placeholder="Your Post"></textarea><br>
+		<button type="submit" class="btn btn-primary btn-lg btn-block" name="post">Post</button>
+	</form>
+  </div>
+</div>
+</div>
+</body>
+</html>
