@@ -21,7 +21,7 @@ def getBlogs():
 
 @app.route("/", methods = ['GET', 'POST'])
 def main():
-    if request.method == 'POST':
+    if request.method == 'GET':
         post = request.form["post"]
         blog = request.form["blog"]
         if post != None and blog != None:
