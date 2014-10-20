@@ -30,14 +30,14 @@ def main():
                 c.execute("INSERT INTO blogs VALUES ('"+blog+"')")
             except:
                 pass
-            redirect(url_for("blog", blog_name = blog))
+            return redirect(url_for("blog", blog_name = blog))
     return render_template("main.html", blogs=getBlogs())
 
 @app.route("/blog/<blog_name>", methods = ["GET", "POST"])
 def blog(blog_name):
     if request.method == "POST":
         post_ID = request.form["comment"]
-        redirect(url_for("post_page", postID = post_ID))
+        return redirect(url_for("post_page", postID = post_ID))
     return render_template("blog.html",
                            posts = pull.pullBlog(blog_name), title = blog_name)
 #wll show posts of blog newest to oldest
