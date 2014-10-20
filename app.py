@@ -27,6 +27,9 @@ def post_page(postID = None):
   #return render_template("post.html", name = post_name, content = post_content)
   #from postID, we access the database to extract post_name and post_content
   return render_template("main.html")#for now, just return main page
+
+
+  
 if __name__=="__main__":
     app.debug=True
     app.run(host="0.0.0.0",port=1639)
