@@ -30,11 +30,8 @@ def main():
                 c.execute("INSERT INTO blogs VALUES ('"+blog+"')")
             except:
                 pass
-<<<<<<< HEAD
             redirect(url_for("blog", blogname = blog))
-=======
             return redirect(url_for("blog", blog_name = blog))
->>>>>>> FETCH_HEAD
     return render_template("main.html", blogs=getBlogs())
 
 @app.route("/blog/<blog_name>", methods = ["GET", "POST"])
