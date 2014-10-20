@@ -2,7 +2,7 @@ import sqlite3
 conn = sqlite3.connect("blogs.db")
 c = conn.cursor()
 
-q = "create table blogs(name text)"
+q = "create table blogs(name text UNIQUE)"
 c = conn.cursor()
 c.execute(q)
 
