@@ -40,7 +40,7 @@ def blog(blog_name):
         post_ID = request.form["comment"]
         return redirect(url_for("post_page", postID = post_ID, blogname = blog_name))
     return render_template("blog.html",
-                           posts = pull.pullBlog(blog_name), title = blog_name, blog = blog_name)
+                           posts = pull.pullBlog(blog_name), title = blog_name)
 #wll show posts of blog newest to oldest
 
 @app.route("/blog/<blogname>/post/<postID>",  methods = ["GET", "POST"])
