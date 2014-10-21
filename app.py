@@ -38,16 +38,17 @@ def main():
 def blog(blog_name):
     if request.method == "POST":
         post_ID = request.form["comment"]
-        return redirect(url_for("post_page", postID = post_ID))
-    return render_template("blog.html",posts = pull.pullBlog(blog_name), title = blog_name)
+        return redirect(url_for("post_page", postID = post_ID, blogname = blog_name))
+    return render_template("blog.html",
+                           posts = pull.pullBlog(blog_name), title = blog_name, blog = blog_name)
 #wll show posts of blog newest to oldest
 
-@app.route("/post/<postID>",  methods = ["GET", "POST"])
-def post_page(postID):
+@app.route("/blog/<blogname>/post/<postID>",  methods = ["GET", "POST"])
+def post_page(blogname, postID):
     post = pull.getPost(postID)
     return render_template("post.html", title=post[0],post = post[1],titlecomments=[])
     #from postID, we access the database to extract post_name and post_content
-    #return render_template("main.html")#for now, just return main page
+
 
 
   

@@ -10,13 +10,13 @@
 	{%for post in posts[::-1]%}
 	<div class="panel panel-info">
 	  <div class="panel-heading">
-	    <a href="/post/{{post[1]}}"><h3 class="panel-title">{{post[0][:50]}}...</h3></a>
+	    <a href="/blog/{{title}}/post/{{post[1]}}"><h3 class="panel-title">{{post[0][:50]}}...</h3></a>
 	  </div>
 	  <div class="panel-body form-group ">
 		<form action= "\" method="POST">
 			<p> {{post[0]}} </p>
 	  </div>
-	  <a class="btn btn-sm btn-block btn-primary" href="/post/{{post[1]}}">View Comments</a>
+	  <a class="btn btn-sm btn-block btn-primary" href="/blog/{{title}}/post/{{post[1]}}">View Comments</a>
 	</div>
 		
 	{%endfor%}
