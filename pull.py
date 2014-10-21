@@ -19,6 +19,7 @@ def pullBlog(blogName):
     
 def addPost(blog, post):
     q ="INSERT TO posts VALUES("+blog+","+post+");"
+    print q
     results = c.execute(q)
     c.commit()
 
