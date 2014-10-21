@@ -22,8 +22,8 @@ def addPost(blog, post):
     results = c.execute(q)
     c.commit()
 
-def getPost(id):
-    query="select posts.* from blogs,posts where posts.rowid=="+id+";"
+def getPost(id_number):
+    query="select posts.* from blogs,posts where posts.rowid=="+id_number+";"
     results= c.execute(query)
     for result in results:
         return result;
@@ -41,3 +41,17 @@ def getBlogs():
         
 
     return blogs
+
+def addComment(blog, user, comment):
+    q = "INSERT TO comments VALUES(%d, %s, %s)"%(blog,user,comment)
+    results = c.execute(q)
+    c.commit()
+
+def getComments(id_number):
+    query="select comments.* from comments,posts where comments.post=="+id_number+";"
+    results = c.execute(query)
+    comments = []
+    for comment in results:
+        comments.append(comment)
+    return comments
+        
