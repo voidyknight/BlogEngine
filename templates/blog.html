@@ -10,7 +10,7 @@
 	{%for post in posts[::-1]%}
 	<div class="panel panel-info">
 	  <div class="panel-heading">
-	    <h3 class="panel-title">{{post[0][:50]}}...</h3>
+	    <a href="/post/{{post[1]}}"><h3 class="panel-title">{{post[0][:50]}}...</h3></a>
 	  </div>
 	  <div class="panel-body form-group ">
 		<form action= "\" method="POST">
