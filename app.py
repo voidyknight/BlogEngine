@@ -47,13 +47,16 @@ def blog(blog_name):
 @app.route("/blog/<blogname>/post/<postID>",  methods = ["GET", "POST"])
 def post_page(blogname, postID):
     post = pull.getPost(postID)
-    new_commenter = request.args.get("user",None)
-    new_comment = request.args.get("comment",None)
-    if new_commenter != None and new_comment != None:
-        #adding a new comment
-        pull.addComment(postID,new_commenter,new_comment)
-    all_comments = pull.getComments(postID) #all the comments for the post
-    return render_template("post.html", title = post[0], post = post[1], comments = all_comments)
+    if request.method == "POST":
+        new_commenter = request.form["user"]
+        new_comment = request.form["comment"]
+        if new_commenter != None and new_comment != None:
+            #adding a new comment
+            pull.addComment(postID,new_commenter,new_comment)
+        all_comments = pull.getComments(postID) #all the comments for the post
+        return render_template("post.html", title = post[0], post = post[1], comments = all_comments, post_ID = postID)
+    return render_template("post.html", title = post[0], post = post[1], post_ID = postID)
+
 
 
 

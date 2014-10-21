@@ -27,11 +27,11 @@
 	    <h3 class="panel-title">Add a comment</h3>
 	  </div>
 	  <div class="panel-body form-group ">
-		<form action= "\" method="POST">
-			<label>Name</label> <input type="text" class="form-control" name="user" placeholder="Your Name"><br>
+		<form action = "/blog/{{title}}/post/{{post_ID}}" method="POST">
+			<label>Name</label> <input type="text" method="POST" class="form-control" name="user" placeholder="Your Name"><br>
 			<label>Comment</label>
 			<textarea name= "post" rows="10" class="form-control" placeholder="Your Comment"></textarea><br>
-			<button type="submit" class="btn btn-primary btn-block" name="comment">Post</button>
+			<button type="submit" method="POST" class="btn btn-primary btn-block" name="comment">Post</button>
 		</form>
 	  </div>
 	</div>

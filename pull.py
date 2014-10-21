@@ -43,10 +43,11 @@ def getBlogs():
 
     return blogs
 
-def addComment(blog, user, comment):
-    q = "INSERT TO comments VALUES(%d, %s, %s)"%(blog,user,comment)
+def addComment(post_ID, user, comment):
+   # print post_ID
+    q = "INSERT INTO comments VALUES("+post_ID+",'"+user+"','"+comment+"');"
     results = c.execute(q)
-    c.commit()
+    conn.commit()
 
 def getComments(id_number):
     query="select comments.* from comments,posts where comments.post=="+id_number+";"
