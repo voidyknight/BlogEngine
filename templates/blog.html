@@ -6,13 +6,20 @@
 </head>
 <body>
 	<div class="container">
-	<h1>{{title}}</h1>
-	{%for post in posts}
-		<div class="container">
-		<p> {{post[0]}} </p>
-			<form action = "/post" class= "form-group"><button class="form-control" name="comments" type="submit" value={{post[1]}}> View Comments </button></form>
-		</div>
-	{%endfor}
+	<center><h1>{{title}}</h1></center>
+	{%for post in posts[::-1]%}
+	<div class="panel panel-info">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">{{post[0][:50]}}...</h3>
+	  </div>
+	  <div class="panel-body form-group ">
+		<form action= "\" method="POST">
+			<p> {{post[0]}} </p>
+	  </div>
+	  <a class="btn btn-sm btn-block btn-primary" href="/post/{{post[1]}}">View Comments</a>
+	</div>
+		
+	{%endfor%}
 
 	</div>
 	
