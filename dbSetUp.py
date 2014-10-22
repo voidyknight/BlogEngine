@@ -14,6 +14,7 @@ c.execute(q);
 q="""
 create table if not exists comments (post integer, user text, comment text)
 """
+
 c.execute(q);
 conn.commit();
 conn.close();
