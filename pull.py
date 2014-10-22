@@ -18,6 +18,8 @@ def pullBlog(blogName):
 
     
 def addPost(blog, post):
+    post=post.replace("p","<br>")
+    print post
     q ="INSERT TO posts VALUES("+blog+","+post+");"
     print q
     results = c.execute(q)
