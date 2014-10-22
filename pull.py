@@ -44,7 +44,8 @@ def getBlogs():
     return blogs
 
 def addComment(post_ID, user, comment):
-   # print post_ID
+    # print post_ID
+    print "this is the comment:"+comment
     q = "INSERT INTO comments VALUES("+post_ID+",'"+user+"','"+comment+"');"
     results = c.execute(q)
     conn.commit()
@@ -54,6 +55,7 @@ def getComments(id_number):
     results = c.execute(query)
     comments = []
     for comment in results:
-        comments.append(comment)
+        if comment not in comments:
+            comments.append(comment)
     return comments
         

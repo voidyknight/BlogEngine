@@ -11,17 +11,24 @@
 	  <div class="panel-heading">
 	    <h3 class="panel-title">{{post[:50]}}...</h3>
 	  </div>
-	  <div class = "panel-body">
+	  <div class = "panel-body"></p>
 	  {{post}}
+  </p>
   </div>
 </div>
+<div class="container">
+	<h2>Comments</h2>
 	{% for comment in comments %}
 	<div class="panel panel-success">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">{{comment[1]}}</h3>
+		</div>
 	  <div class="panel-body">
-		{{comment}}
+		{{comment[2]}}
 	  </div>
 	</div>
 	{% endfor %}<br><br><br>
+</div>
 	<div class="panel panel-info">
 	  <div class="panel-heading">
 	    <h3 class="panel-title">Add a comment</h3>
@@ -30,8 +37,8 @@
 		<form action = "/blog/{{title}}/post/{{post_ID}}" method="POST">
 			<label>Name</label> <input type="text" method="POST" class="form-control" name="user" placeholder="Your Name"><br>
 			<label>Comment</label>
-			<textarea name= "post" rows="10" class="form-control" placeholder="Your Comment"></textarea><br>
-			<button type="submit" method="POST" class="btn btn-primary btn-block" name="comment">Post</button>
+			<textarea name= "comment" rows="10" class="form-control" placeholder="Your Comment"></textarea><br>
+			<button type="submit" method="POST" class="btn btn-primary btn-block" name="submit">Post</button>
 		</form>
 	  </div>
 	</div>

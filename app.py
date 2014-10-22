@@ -53,9 +53,9 @@ def post_page(blogname, postID):
         if new_commenter != None and new_comment != None:
             #adding a new comment
             pull.addComment(postID,new_commenter,new_comment)
-        all_comments = pull.getComments(postID) #all the comments for the post
-        return render_template("post.html", title = post[0], post = post[1], comments = all_comments, post_ID = postID)
-    return render_template("post.html", title = post[0], post = post[1], post_ID = postID)
+    all_comments = pull.getComments(postID) #all the comments for the post
+    return render_template("post.html", title = post[0], post = post[1], comments = all_comments, post_ID = postID)
+  
 
 
 
