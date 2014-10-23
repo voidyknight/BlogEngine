@@ -46,8 +46,7 @@ def getBlogs():
     return blogs
 
 def addComment(post_ID, user, comment):
-    # print post_ID
-    print "this is the comment:"+comment
+    comment=comment.replace("'",'"')
     q = "INSERT INTO comments VALUES("+post_ID+",'"+user+"','"+comment+"');"
     results = c.execute(q)
     conn.commit()

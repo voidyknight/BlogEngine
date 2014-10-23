@@ -24,7 +24,7 @@ def main():
     if request.method == 'POST':
         post = request.form["post"]
         blog = request.form["blog"]
-        #post=post.replace("\r\n","<br>")
+        post=post.replace("'",'"')
         if post != None and blog != None:
             print "INSERT INTO posts VALUES ('"+blog+"', '"+post+"')"
             c.execute("INSERT INTO posts VALUES ('"+blog+"', '"+post+"');")
