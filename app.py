@@ -49,10 +49,11 @@ def blog(blog_name):
 @app.route("/blog/<blogname>/post/<postID>",  methods = ["GET", "POST"])
 def post_page(blogname, postID):
     post = pull.getPost(postID)
+    print "h"
     if request.method == "POST":
-        if request.form["home"] == None:
-            return redirect(url_for("/"))
+        print "c"
         new_commenter = request.form["user"]
+        print new_commenter
         new_comment = request.form["comment"]
         if new_commenter != None and new_comment != None:
             #adding a new comment

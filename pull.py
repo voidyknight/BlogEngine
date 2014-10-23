@@ -56,7 +56,7 @@ def getComments(id_number):
     results = c.execute(query)
     comments = []
     for comment in results:
-        if comment not in comments:
+        if comment not in comments and comment[2] != "":
             comments.append(comment)
     return comments
         
