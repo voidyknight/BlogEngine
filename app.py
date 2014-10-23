@@ -40,7 +40,8 @@ def main():
 def blog(blog_name):
     if request.method == "POST":
         post_ID = request.form["comment"]
-        return redirect(url_for("post_page", postID = post_ID, blogname = blog_name))
+        return redirect(url_for("post_page", postID = post_ID, 
+                                blogname = blog_name, redirect = url_for("main")))
     return render_template("blog.html",
                            posts = pull.pullBlog(blog_name), title = blog_name)
 #wll show posts of blog newest to oldest
@@ -49,13 +50,16 @@ def blog(blog_name):
 def post_page(blogname, postID):
     post = pull.getPost(postID)
     if request.method == "POST":
+        if request.form["home"] == None:
+            return redirect(url_for("/"))
         new_commenter = request.form["user"]
         new_comment = request.form["comment"]
         if new_commenter != None and new_comment != None:
             #adding a new comment
             pull.addComment(postID,new_commenter,new_comment)
     all_comments = pull.getComments(postID) #all the comments for the post
-    return render_template("post.html", title = post[0], post = post[1], comments = all_comments, post_ID = postID)
+    return render_template("post.html", title = post[0], post = post[1], 
+                           comments = all_comments, post_ID = postID, redirect = url_for("main"))
   
 
 
